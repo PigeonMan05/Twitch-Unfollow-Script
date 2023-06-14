@@ -1,6 +1,4 @@
 ##############################
-# Author:   Josh West        #
-# Discord:  Pigeon#2628      #
 # Date:     14-06-2023       #
 # Version:  1.0              #
 ##############################
@@ -66,7 +64,7 @@ def main():
         print("Missing headers in config.yml")
         exit(1)
 
-    # Whitelist = config.get('Whitelist', [])
+    Whitelist = config.get('Whitelist', [])
 
     done = False
     while not done:
@@ -103,14 +101,21 @@ def main():
             done = True
             continue
 
+        skipped_channels = set()
+
         for channel in channel_edges:
             channel_id = channel['node']['id']
-            # display_name = channel['node']['displayName']
-            # if display_name in Whitelist:
-            #     print(f"Skipping whitelisted channel: {display_name}")
-            #     continue
+            display_name = channel['node']['displayName']
+            if display_name in Whitelist:
+                if display_name in skipped_channels:
+                    continue
+                skipped_channels.add(display_name)
+                print(f"Skipping whitelisted channel: {display_name}")
+            else:
+                unfollow_channel(headers, channel_id)
 
-            unfollow_channel(headers, channel_id)
+        if len(skipped_channels) == len(Whitelist):
+            done = True
 
 
 if __name__ == '__main__':

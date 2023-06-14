@@ -6,6 +6,5 @@ Content-Type: text/plain;charset=UTF-8
 
 
 # Whitelist channels to not be unfollowed (optional - case sensitive - usernames only)
-## Currently not working - gets stuck in a loop... if you find a fix, please let me know! :)
-#Whitelist:
-#  - username1
+Whitelist:
+  - username1
