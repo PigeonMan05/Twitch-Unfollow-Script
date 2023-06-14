@@ -33,6 +33,10 @@ Client-Id: YOUR_CLIENT_ID
 Client-Integrity: YOUR_CLIENT_INTEGRITY
 X-Device-Id: YOUR_DEVICE_ID
 Content-Type: text/plain;charset=UTF-8
+
+# Whitelist channels to not be unfollowed (optional - case sensitive - usernames only)
+Whitelist:
+  - username1
 ```
 ## Run the script
 
