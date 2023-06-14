@@ -1,4 +1,4 @@
-# Twitch-Unfollower
+# Twitch Unfollow Script
 
 This is a Python script that mass unfollows Twitch channels.
 I made this since my account was hacked and mass followed over 900 channels, and since Twitch no longer offers that kind of support
